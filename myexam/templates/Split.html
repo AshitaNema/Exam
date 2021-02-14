@@ -1,293 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-
-
- 
- {% extends "base_generic.html" %}
-
- 
- 
-   
-   
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Dosis:300,400,500,,600,700,700i|Lato:300,300i,400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+<style>
+    body {
+        margin: 0px;
+    }
+    header {
+        background-color: rgb(213, 213, 207);
+        height: 50px;
+        font-size: larger;
+        z-index: 1;
+    }
+    .logo {
+  font-size: 28px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: "Lato", sans-serif;
+  margin-top: 10px;
+}
+.logo img {
+  max-height: 40px;
   
-{% block content %}
-              < <header style="background-color: rgb(206, 23, 23); height: 50px; margin-top: -25px;">
+}
+    h1,h3,h2,p {
+        margin: 10px;
+    }
+    p,ul {
+      font-size: 20px;
+    }
+    .split {
+        height: 100%;
+        width: 50%;
+        position: fixed;
+        z-index: 1;
+        top: 50px;
+        overflow-x: hidden;
+        padding-top: 0px;
+      }
+      
+      .left {
+        left: 0;
+        background-color: rgb(255, 255, 255);
+        resize: horizontal;
+
+      }
+      
+      .right {
+        right: 0;
+        background-color: rgb(247, 236, 236);
+        
+      }
+      
+      .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+      
+      .centered img {
+        width: 150px;
+        border-radius: 50%;
+      }
+      .button {
+              border: none;
+              color: white;
+              padding: 16px 32px;
+              float: right;
+              text-decoration: none;
+              display: inline-block;
+              font-size: 16px;
+              margin: 4px 45px;
+              transition-duration: 0.4s;
+              cursor: pointer;
+            }
+            
+            .start {
+              background-color: white; 
+              color: black; 
+              border: 2px solid  rgb(206, 23, 23);
+              box-shadow: 0 2px 8px grey;
+            }
+            
+            .start:hover {
+              background-color: rgb(206, 23, 23);
+              color: white;
+            }
+
+            
+  .center {
+  text-align: center;
+}
+
+.button {
+              border: none;
+              color: white;
+              padding: 16px 32px;
+              float: right;
+              text-decoration: none;
+              display: inline-block;
+              font-size: 16px;
+              margin: 4px 45px;
+              transition-duration: 0.4s;
+              cursor: pointer;
+            }
+            
+            .start {
+              background-color: white; 
+              color: black; 
+              border: 2px solid  rgb(206, 23, 23);
+              box-shadow: 0 2px 8px grey;
+            }
+            
+            .start:hover {
+              background-color: rgb(206, 23, 23);
+              color: white;
+            }
+
+            /* Style tab links */
+.tablink {
+  color: rgb(206, 23, 23);
+  cursor: pointer;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid rgb(206, 23, 23);
+  margin: 16px;
+}
+
+.arrow {
+  color: rgb(206, 23, 23);
+  text-decoration: none;
+  transition: background-color .3s;
+  cursor: unset;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: rgb(0, 0, 0);
+  display: none;
+  padding: 0px 20px;
+  height: 100%;
+}
+
+
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(206, 23, 23);
+  color: white;
+}
+
+
+</style>
+</head>
+<body>
+
+    <header>
+               
+      <div class="container d-flex align-items-center">
+        <h1 class="logo">LOGO</h1>
+        <a href="index.html" class="logo mr-auto"><i class="fas fa-star"></i><img src="" alt="" class="img-fluid"></a>
+      </div>
+        
+    </header>
+
+      
+      
+      <div class="split left">
+               <header style="background-color: rgb(206, 23, 23); height: 50px; margin-top: -10px;">
                     
                 <h3 style="padding-top: 15px; color: cornsilk; text-align: center;">Ansible Introduction</h3>
-            </header>
+                </header>
               
-            <button class="tablink" onclick="openPage('Home', this, 'red')" id="defaultOpen">Step 1</button>
-            <button class="tablink" onclick="openPage('News', this, 'green')" >Step 2</button>
-            <button class="tablink" onclick="openPage('Contact', this, 'blue')">Step 3</button>
-            <button class="tablink" onclick="openPage('About', this, 'orange')">Step 4</button>
-            <button class="tablink" onclick="openPage('Step5', this, 'blue')">Step 5</button>
-            <button class="tablink" onclick="openPage('Step6', this, 'orange')">Step 6</button>
-
-            <div id="Home" class="tabcontent">
+                  <button class="tablink" onclick="openPage('Step1', this, 'white')" id="defaultOpen">Step 1</button>
+                  <a href="#" class="arrow">&raquo;</a>
+                  <button class="tablink" onclick="openPage('Step2', this, 'white')" >Step 2</button>
+                  <a href="#" class="arrow">&raquo;</a>
+                  <button class="tablink" onclick="openPage('Step3', this, 'white')">Step 3</button>
+                  <a href="#" class="arrow">&raquo;</a>
+                  <button class="tablink" onclick="openPage('Step4', this, 'white')">Step 4</button>
+                  <a href="#" class="arrow">&raquo;</a>
+                  <button class="tablink" onclick="openPage('Step5', this, 'white')">Step 5</button>
+                  <a href="#" class="arrow">&raquo;</a>
+                  <button class="tablink" onclick="openPage('Step6', this, 'white')">Step 6</button>
+            
+            <div id="Step1" class="tabcontent">
               
 
-              <div >
-                
-                <div class="center">
-                  <div class="pagination">
-                  
-                  <a href="#">Step 1</a>
-                  
-                  <a href="{% url 'step2' %}">&raquo;</a>
-                  </div>
-                </div>
-            <div style="color: black;">
-                <h2 style="color: rgb(206, 23, 23);">Exploring and understanding the lab environment</h2>
-                <p>You have access to the following hosts: <br>
-
-                  <table id="customers">
-                    <tr>
-                      <th>Role</th>
-                      <th>Inventory Name</th>
-                      <th>IP Address</th>
-                    </tr>
-                    <tr>
-                      <td>Ansible Control node</td>
-                      <td>host01</td>
-                      <td>172.17.0.26</td>
-                    </tr>
-                    <tr>
-                      <td>Manage Host01</td>
-                      <td>host01</td>
-                      <td>172.17.0.26</td>
-                    </tr>
-                    <tr>
-                      <td>Manage Host02</td>
-                      <td>host01</td>
-                      <td>172.17.0.26</td>
-                    </tr>
+                <div >
                     
-                  </table>
+                    
+                <div style="color: black;">
+                    <h2 style="color: rgb(206, 23, 23);">Exploring and understanding the lab environment</h2>
+                    <p>You have access to the following hosts: <br>
+
+                      <table id="customers">
+                        <tr>
+                          <th>Role</th>
+                          <th>Inventory Name</th>
+                          <th>IP Address</th>
+                        </tr>
+                        <tr>
+                          <td>Ansible Control node</td>
+                          <td>host01</td>
+                          <td>172.17.0.26</td>
+                        </tr>
+                        <tr>
+                          <td>Manage Host01</td>
+                          <td>host01</td>
+                          <td>172.17.0.26</td>
+                        </tr>
+                        <tr>
+                          <td>Manage Host02</td>
+                          <td>host01</td>
+                          <td>172.17.0.26</td>
+                        </tr>
+                        
+                      </table>
+                      <br>
+                    </p>
+                    <p>
+                      A control node is any machine with Ansible installed. All three nodes are running Red Hat Enterprise Linux 8. To see what version of Red Hat Enterprise is running on the server use the Linux cat command to examine the /etc/redhat-release file.
+                    </p>
+                    <h2>Jane Flex</h2>
+                    <p>Some text.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
+                    </p>
+                    <h2>Jane Flex</h2>
+                    <p>Some text.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
+                    </p>
+                  </div>
+                  </div>
                   <br>
-                  A control node is any machine with Ansible installed. All three nodes are running Red Hat Enterprise Linux 8. To see what version of Red Hat Enterprise is running on the server use the Linux cat command to examine the /etc/redhat-release file.
-                </p>
-                <h2>Jane Flex</h2>
-                <p>Some text.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
-                </p>
-                <h2>Jane Flex</h2>
-                <p>Some text.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
-                </p>
-              </div>
-              </div>
-              <br>
-              <br>
+                  <br><br><br>
             </div>
 
-            <div id="News" class="tabcontent">
+            <div id="Step2" class="tabcontent">
               <div >
                 
-                <div class="center">
-                  <div class="pagination">
-                  <a href="\step1">&laquo;</a>
-                  <a href="#" >Step 2</a>
-                  
-                  <a href="\step3">&raquo;</a>
-                  </div>
-                </div>
-            <div style="color: black;">
-                <h2 style="color: rgb(206, 23, 23);">Examine Ansible software version</h2>
-                <p>Some text.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
-                </p>
-                <h2>Jane Flex</h2>
-                <p>Some text.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
-                </p>
-                <h2>Jane Flex</h2>
-                <p>Some text.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
-                </p>
+                
+                  <div style="color: black;">
+                      <h2 style="color: rgb(206, 23, 23);">Examine Ansible software version</h2>
+                      <p>Some text.
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
+                          Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
+                      </p>
+                      <h2>Jane Flex</h2>
+                      <p>Some text.
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
+                          Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
+                      </p>
+                      <h2>Jane Flex</h2>
+                      <p>Some text.
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
+                          Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
+                      </p>
+                    </div>
               </div>
-              </div>
+              <br><br><br><br>
             </div>
 
-            <div id="Contact" class="tabcontent">
-              <div style="padding: 20px;">
+            <div id="Step3" class="tabcontent">
+              <div>
                 
-                <div class="center">
-                  <div class="pagination">
-                  <a href="\step2">&laquo;</a>
-                  <a href="#">Step 3</a>
-                  
-                  <a href="\step4">&raquo;</a>
-                  </div>
+                
+              <div style="color: black;">
+                  <h2 style="color: rgb(206, 23, 23);">The Ansible Configuration File</h2>
+                  <p>Some text.
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
+                  </p>
+                  <h2>Jane Flex</h2>
+                  <p>Some text.
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
+                  </p>
+                  <h2>Jane Flex</h2>
+                  <p>Some text.
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
+                  </p>
                 </div>
-            <div style="color: black;">
-                <h2 style="color: rgb(206, 23, 23);">The Ansible Configuration File</h2>
-                <p>Some text.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
-                </p>
-                <h2>Jane Flex</h2>
-                <p>Some text.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
-                </p>
-                <h2>Jane Flex</h2>
-                <p>Some text.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
-                </p>
-              </div>
-              </div>
-              <br><br>
+                </div>
+                <br><br><br><br>
             </div>
 
-            <div id="About" class="tabcontent">
-              <div style="padding: 20px;">
+            <div id="Step4" class="tabcontent">
+              <div>
                 
-                <div class="center">
-                  <div class="pagination">
-                  <a href="\step3">&laquo;</a>
-                  <a href="#" >Step 4</a>
-                  
-                  <a href="\step5">&raquo;</a>
-                  </div>
+                
+              <div style="color: black;">
+                  <h2 style="color: rgb(206, 23, 23);">Ansible Inventory</h2>
+                  <p>Some text.
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
+                  </p>
+                  <h2>Jane Flex</h2>
+                  <p>Some text.
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
+                  </p>
+                  <h2>Jane Flex</h2>
+                  <p>Some text.
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
+                  </p>
                 </div>
-            <div style="color: black;">
-                <h2 style="color: rgb(206, 23, 23);">Ansible Inventory</h2>
-                <p>Some text.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
-                </p>
-                <h2>Jane Flex</h2>
-                <p>Some text.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
-                </p>
-                <h2>Jane Flex</h2>
-                <p>Some text.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
-                </p>
-              </div>
-              </div>
-              <br><br>
+                </div>
+                <br><br><br><br>
             </div>
 
 
             <div id="Step5" class="tabcontent">
-              <div style="padding: 20px;">
+              <div>
                 
-                <div class="center">
-                  <div class="pagination">
-                  <a href="\step4">&laquo;</a>
-                  <a href="#" >Step 5</a>
-                  
-                  <a href="\step6">&raquo;</a>
-                  </div>
+                
+              <div style="color: black;">
+                  <h2 style="color: rgb(206, 23, 23);">Ansible Playbook Overview</h2>
+                  <p>Some text.
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
+                  </p>
+                  <h2>Jane Flex</h2>
+                  <p>Some text.
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
+                  </p>
+                  <h2>Jane Flex</h2>
+                  <p>Some text.
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
+                  </p>
                 </div>
-            <div style="color: black;">
-                <h2 style="color: rgb(206, 23, 23);">Ansible Playbook Overview</h2>
-                <p>Some text.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
-                </p>
-                <h2>Jane Flex</h2>
-                <p>Some text.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
-                </p>
-                <h2>Jane Flex</h2>
-                <p>Some text.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
-                </p>
-              </div>
-              </div>
-              <br><br>
+                </div>
+                <br><br><br><br>
             </div>
 
             <div id="Step6" class="tabcontent">
-              <div style="padding: 20px;">
-                
-                <div class="center">
-                  <div class="pagination">
-                  <a href="{% url 'step5' %}">&laquo;</a>
-                  <a >Step 6</a>
-                  
-                  </div>
-                </div>
-            <div style="color: black;">
-                <h2 style="color: rgb(206, 23, 23);">Ansible Variables</h2>
-                <p>Some text.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
-                </p>
-                <h2>Jane Flex</h2>
-                <p>Some text.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
-                </p>
                 <div>
-                    <button class="button start" href='#'>CONTINUE</button>
-                    
-                    
-                </div>
-                
-                <br><br><br><br><br><br>
+                  
+                  
+              <div style="color: black;">
+                  <h2 style="color: rgb(206, 23, 23);">Ansible Variables</h2>
+                  <p>Some text.
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
+                  </p>
+                  <h2>Jane Flex</h2>
+                  <p>Some text.
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus ullam magni inventore eaque culpa nihil iste placeat iusto modi ad. Magnam quisquam nostrum eaque fuga exercitationem eos velit vero maiores.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium saepe exercitationem architecto consequuntur iste officia praesentium neque. Illum modi id cumque? Illum veritatis expedita quaerat sequi iste reiciendis est culpa?
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sed, distinctio expedita officiis recusandae esse eos dolor quidem voluptatem tempore, in quis voluptas illum laudantium a doloribus velit blanditiis perspiciatis.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, hic, quod laboriosam ut vitae excepturi repudiandae pariatur fugiat asperiores suscipit dolor atque, dolorem blanditiis sunt cumque quaerat error cupiditate aspernatur.
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. In asperiores esse quis ea, vero eligendi quo quam magni maiores enim ratione voluptatibus cupiditate laborum recusandae mollitia iusto at quas natus?
+                  </p>
+                  <div>
+                      <button class="button start" href='#'>CONTINUE</button>
+                      
+                      
+                  </div>
+                  
+
+                  <br><br><br><br><br><br>
             </div>
+          </div>
+          </div>
+            <div class="split right">
+              <div>
+                <iframe src="http://localhost:8888/" height="800" width="100%" title="Iframe Example"></iframe>
 
- {% endblock %}
+              </div>
+            </div>
+            <script>
+              function openPage(pageName,elmnt,color) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                  tabcontent[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablink");
+                for (i = 0; i < tablinks.length; i++) {
+                  tablinks[i].style.backgroundColor = "";
+                }
+                document.getElementById(pageName).style.display = "block";
+                elmnt.style.backgroundColor = color;
+              }
+              
+              // Get the element with id="defaultOpen" and click on it
+              document.getElementById("defaultOpen").click();
 
+
+
+              
+
+
+              </script>
+      
+      </body>
+      </html> 
+      
 
    

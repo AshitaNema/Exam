@@ -12,3 +12,8 @@ def HomePage(request):
 def Split(request):
     os.system("wssh")
     return render(request, "Split.html", None)
+
+
+def SuccessPage(request):
+    
+    return render(request, "Success.html", None)

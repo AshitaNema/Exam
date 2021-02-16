@@ -5,6 +5,8 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
   <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500&family=Roboto+Condensed&display=swap" rel="stylesheet">  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Dosis:300,400,500,,600,700,700i|Lato:300,300i,400,400i,700,700i" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -12,12 +14,14 @@
 <style>
     body {
         margin: 0px;
+        font-family: 'Newsreader';
     }
     header {
         background-color: rgb(213, 213, 207);
         height: 50px;
         font-size: larger;
         z-index: 1;
+        font-family: cursive;
     }
     .logo {
   font-size: 28px;
@@ -29,6 +33,7 @@
   text-transform: uppercase;
   font-family: "Lato", sans-serif;
   margin-top: 10px;
+  font-family: cursive;
 }
 .logo img {
   max-height: 40px;
@@ -132,13 +137,21 @@
 
             /* Style tab links */
 .tablink {
-  color: rgb(206, 23, 23);
+  color: black;
   cursor: pointer;
   padding: 8px 16px;
-  text-decoration: none;
   transition: background-color .3s;
-  border: 1px solid rgb(206, 23, 23);
-  margin: 16px;
+  border: none;
+  margin: 10px;
+  border-radius: 22px;
+  background-color: blanchedalmond;
+  text-decoration: none;
+  margin-top: 20px;
+}
+
+.tablink:focus {
+  outline: none;
+  color: rgb(206, 23, 23);
 }
 
 .arrow {
@@ -146,6 +159,7 @@
   text-decoration: none;
   transition: background-color .3s;
   cursor: unset;
+  font-weight: 800;
 }
 
 .tablink:hover {
@@ -193,7 +207,7 @@
                
       <div class="container d-flex align-items-center">
         <h1 class="logo">LOGO</h1>
-        <a href="index.html" class="logo mr-auto"><i class="fas fa-star"></i><img src="" alt="" class="img-fluid"></a>
+        <a href="#" class="logo mr-auto"><i class="fas fa-star"></i><img src="" alt="" class="img-fluid"></a>
       </div>
         
     </header>
@@ -201,9 +215,9 @@
       
       
       <div class="split left">
-               <header style="background-color: rgb(206, 23, 23); height: 50px; margin-top: -10px;">
+               <header style="background-color: rgb(206, 23, 23); height: 55px; margin-top: -10px;">
                     
-                <h3 style="padding-top: 15px; color: cornsilk; text-align: center;">Ansible Introduction</h3>
+                <h3 style="padding-top: 10px; color: cornsilk; text-align: center;">Ansible Introduction</h3>
                 </header>
               
                   <button class="tablink" onclick="openPage('Step1', this, 'white')" id="defaultOpen">Step 1</button>
@@ -438,7 +452,7 @@
                   </p>
                   <div>
                       <button class="button start" onclick="location.href = '/success'">CONTINUE</button>
-                      
+                      <br><br><br><br><br><br><br>
                       
                   </div>
                   

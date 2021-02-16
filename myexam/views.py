@@ -10,7 +10,7 @@ def HomePage(request):
 
 
 def Split(request):
-    os.system("wssh")
+    os.system("wssh --fbidhttp=False")
     return render(request, "Split.html", None)
 
 
